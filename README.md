@@ -82,4 +82,19 @@ REST API best practices
 Containerized deployment
 
 
+
+![IMAGE 2025-10-02 7:16:09 PM](https://github.com/user-attachments/assets/a363f162-6bb8-4839-adf7-9dc2e9332e12)
+
+
+![IMAGE 2025-10-02 7:16:19 PM](https://github.com/user-attachments/assets/78782852-a39b-4ba8-8d61-033f5781a8c3)
+
+
+![IMAGE 2025-10-02 7:16:34 PM](https://github.com/user-attachments/assets/e3cb1ff4-2c3c-40da-b08c-96a7d465c3e9)
+
+
+![IMAGE 2025-10-02 7:16:45 PM](https://github.com/user-attachments/assets/7a4e345e-c043-4549-828f-c7723c2fa1de)
+
+![IMAGE 2025-10-02 7:16:56 PM](https://github.com/user-attachments/assets/15b5c445-0f5a-4d0a-a6ac-04826bae5f16)
+
+
 ## Made with hate by xgorfo <3
