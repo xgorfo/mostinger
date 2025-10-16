@@ -1,4 +1,4 @@
-
+-----------------
 # Mostinger
 
 A modern, Dockerized blog platform built with FastAPI, featuring a beautiful responsive UI.
