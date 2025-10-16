@@ -1,9 +1,9 @@
 
-# Mostinger 
+# Mostinger
 
 A modern, Dockerized blog platform built with FastAPI, featuring a beautiful responsive UI.
 
-## Features 
+## Features
 
 - **RESTful API** with FastAPI
 - **Modern UI** with responsive design
@@ -13,7 +13,7 @@ A modern, Dockerized blog platform built with FastAPI, featuring a beautiful res
 - **File-based Storage** with JSON
 - **Auto-generated API Documentation**
 
-## Quick Start 
+## Quick Start
 
 ### With Docker (Recommended)
 
@@ -28,7 +28,7 @@ docker-compose up --build
 Web Interface: http://localhost:8000
 API Documentation: http://localhost:8000/api
 Health Check: http://localhost:8000/health
-API Endpoints 
+API Endpoints
 
 Users
 
@@ -45,7 +45,7 @@ GET /api/posts/{id} - Get post by ID
 PUT /api/posts/{id} - Update post
 DELETE /api/posts/{id} - Delete post
 GET /api/users/{id}/posts - Get user's posts
-Project Structure 
+Project Structure
 
 text
 mostinger/
@@ -64,14 +64,14 @@ mostinger/
 └── assets/
     └── css/
         └── style.css     # Styling
-Technologies Used 
+Technologies Used
 
 Backend: FastAPI, Python
 Frontend: HTML5, CSS3, Jinja2
 Containerization: Docker, Docker Compose
 Data Validation: Pydantic
 Server: Uvicorn
-Development 
+Development
 ```
 
 This project was developed as a blog platform demonstration with:

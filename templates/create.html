@@ -19,27 +19,27 @@
             <label for="author_id" class="form-label">
                 <span class="icon">👤</span> Author ID
             </label>
-            <input type="number" id="author_id" name="author_id" value="{{ author_id }}" 
+            <input type="number" id="author_id" name="author_id" value="{{ author_id }}"
                    class="form-input" required placeholder="Enter user ID">
             <small style="color: #6c757d; font-size: 0.9rem;">User with this ID must exist</small>
         </div>
-        
+
         <div class="form-group">
             <label for="title" class="form-label">
                 <span class="icon">📝</span> Post Title
             </label>
-            <input type="text" id="title" name="title" value="{{ title }}" 
+            <input type="text" id="title" name="title" value="{{ title }}"
                    class="form-input" required placeholder="Enter post title">
         </div>
-        
+
         <div class="form-group">
             <label for="content" class="form-label">
                 <span class="icon">📄</span> Post Content
             </label>
-            <textarea id="content" name="content" class="form-textarea" 
+            <textarea id="content" name="content" class="form-textarea"
                       required placeholder="Write your post content here...">{{ content }}</textarea>
         </div>
-        
+
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">
                 <span class="icon">🚀</span> Publish Post

@@ -1,13 +1,14 @@
 import json
 import os
 from datetime import datetime
-from typing import List, Dict, Optional, Any
-from fastapi import FastAPI, HTTPException, Request, Form, status
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, field_validator, EmailStr
+from typing import Any, Dict, List, Optional
+
 import uvicorn
+from fastapi import FastAPI, Form, HTTPException, Request, status
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel, EmailStr, field_validator
 
 
 class UserModel:
@@ -130,8 +131,12 @@ class DataManager:
                             user_data["username"],
                             user_data["password"],
                         )
-                        user.created_at = datetime.fromisoformat(user_data["created_at"])
-                        user.updated_at = datetime.fromisoformat(user_data["updated_at"])
+                        user.created_at = datetime.fromisoformat(
+                            user_data["created_at"]
+                        )
+                        user.updated_at = datetime.fromisoformat(
+                            user_data["updated_at"]
+                        )
                         self.users_table[user.id] = user
                     self.next_user_id = data.get("next_id", 1)
             except json.JSONDecodeError as e:
@@ -155,8 +160,12 @@ class DataManager:
                             post_data["title"],
                             post_data["content"],
                         )
-                        post.created_at = datetime.fromisoformat(post_data["created_at"])
-                        post.updated_at = datetime.fromisoformat(post_data["updated_at"])
+                        post.created_at = datetime.fromisoformat(
+                            post_data["created_at"]
+                        )
+                        post.updated_at = datetime.fromisoformat(
+                            post_data["updated_at"]
+                        )
                         self.posts_table[post.id] = post
                     self.next_post_id = data.get("next_id", 1)
             except json.JSONDecodeError as e:
@@ -207,7 +216,9 @@ class DataManager:
             return True
         return False
 
-    def create_post(self, user_id: int, title: str, content: str) -> Optional[PostModel]:
+    def create_post(
+        self, user_id: int, title: str, content: str
+    ) -> Optional[PostModel]:
         if user_id not in self.users_table:
             return None
 
@@ -285,7 +296,10 @@ async def create_post_form(request: Request) -> HTMLResponse:
 
 @app.post("/create")
 async def create_post_handler(
-    request: Request, author_id: int = Form(...), title: str = Form(...), content: str = Form(...)
+    request: Request,
+    author_id: int = Form(...),
+    title: str = Form(...),
+    content: str = Form(...),
 ) -> HTMLResponse:
     try:
         post = data_manager.create_post(author_id, title, content)
@@ -317,7 +331,9 @@ async def create_post_handler(
 @app.get("/edit/{post_id}", response_class=HTMLResponse)
 async def edit_post_form(request: Request, post_id: int) -> HTMLResponse:
     post = data_manager.get_post(post_id)
-    return templates.TemplateResponse("edit.html", {"request": request, "article": post})
+    return templates.TemplateResponse(
+        "edit.html", {"request": request, "article": post}
+    )
 
 
 @app.post("/edit/{post_id}")
@@ -351,7 +367,9 @@ async def delete_post_handler(post_id: int) -> RedirectResponse:
 async def create_user(user_data: UserCreateSchema) -> Dict[str, Any]:
     try:
         user = data_manager.create_user(
-            email=user_data.email, username=user_data.username, password=user_data.password
+            email=user_data.email,
+            username=user_data.username,
+            password=user_data.password,
         )
         return {
             "id": user.id,
@@ -394,7 +412,10 @@ async def get_user_detail(user_id: int) -> Dict[str, Any]:
 @app.put("/api/users/{user_id}")
 async def update_user_data(user_id: int, user_data: UserCreateSchema) -> Dict[str, Any]:
     user = data_manager.update_user(
-        user_id, email=user_data.email, username=user_data.username, password=user_data.password
+        user_id,
+        email=user_data.email,
+        username=user_data.username,
+        password=user_data.password,
     )
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -460,7 +481,9 @@ async def get_post_detail(post_id: int) -> Dict[str, Any]:
 
 @app.put("/api/posts/{post_id}")
 async def update_post_data(post_id: int, post_data: PostCreateSchema) -> Dict[str, Any]:
-    post = data_manager.update_post(post_id, title=post_data.title, content=post_data.content)
+    post = data_manager.update_post(
+        post_id, title=post_data.title, content=post_data.content
+    )
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
     return {
