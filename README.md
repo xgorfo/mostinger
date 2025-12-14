@@ -1,4 +1,11 @@
 
+https://drive.google.com/file/d/12ei3zHKKvMyVw_g7lVJHa7aLowWDkkOY/view?usp=sharing
+https://github.com/user-attachments/assets/ef1576fb-6b16-4bcb-93c3-1b0ad3c4ae0f
+
+
+
+
+
 # MOSTINGER - RDR2 Community Blog Platform
 
 ![Mostinger](https://img.shields.io/badge/Stack-Full--Stack-orange)
